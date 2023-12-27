@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaste React</title>
+    <link rel="stylesheet" href="./index.css"/>
+</head>
+<body>
+    <div id="header">
+        <h1>Akshay is here!</h1>
+    </div>
+    <h1>Hello on top of root</h1>
+    <div id="root">
+        <!-- Basic HTML Program -->
+        <!-- <h1>Hello World!</h1> -->
+        <h1>Akshay is here!</h1>
+    </div>
+    <!-- React is working inside this div root -->
+    <h1>hello on below of root</h1>
+    <!-- Basic JS Program -->
+    <!-- <script>
+     const heading =  document.createElement("h1");
+     heading.innerHTML = "Hello World form JAVASCRIPT!"
+     const root = document.getElementById("root");
+     root.appendChild(heading)
+    </script> -->
+    <!-- <script src="./App.js">  </script> -->
+        <!-- throws error as order is important -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="./App.js">
+    </script> 
+    
+</body>
+</html>
+<!-- It can work independently on small portion of code, therefore is is library only not a full fleged framework  -->
+<!-- React can be worked on small piece of code(example: header ony, sidebar only, footer only) -->
+<!-- React is some piece of JS code wriiten by facebook developers -->
+<!-- React can be applied on the existing application code also -->
