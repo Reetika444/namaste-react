@@ -27,3 +27,13 @@
 
 
 what makes your app performant fast, better user experience, optimized?
+
+- npm reserved start keyword,you can use npm run start or npm start. For other things always use run with npm then script key(npm run build)
+- JS Engine/browsers understands ES6 or Ecmascript
+- Parcel is doing tje job behind the scenes.It transpiled(converted to the code that browser,react can understand) the code before it goes to js engine and js engine then understands this code.
+
+Extensions that should be used
+- Prettier Code Formatter By Prettier
+- Bracket Pair Colorization By Dzhavat Ushav
+- ESLint by Microsoft
+- Better Comments by Aaron Bond

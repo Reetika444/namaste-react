@@ -1,60 +1,53 @@
-import React from "react"
-import  ReactDOM  from "react-dom/client";
+import React from "react";
+import ReactDOM  from "react-dom/client";
+
+// React Elements are equivalent to DOM Elements(HTML Elements). React Element is not HTML Element. It is object.
+// React.createElement => ReactElement(JS object) => when we render this on to the DOM, It becomes HTMLElement(render).
+
+// const heading = React.createElement("h1",{id:"heading"},"reetika");
+
+// console.log(heading)
+
+// JSX (transpiled before it reaches js engine) - PARCEL - Babel(normal js package) JSX convert it to code what react,js engine understands
+// JSX => Babel transpiles it to React.createElement => ReactElement(JS object) => when we render this on to the DOM, It becomes HTMLElement(render).
+
+// If JSX is in single line, this is good
+// If JSX in multiple lines, you have to wrap around --round () brackets -- Mandatory
+const heading = (<h1 className="head" tabIndex="1">Namaste React using JSX</h1>)
+
+console.log(heading)
+
+// jsxHeading is react element(object)
 
 
-// Nested Elements
-{/* <div id="parent">
-    <div id="child">
-        <h1>I am an h1 tag</h1>
-        <h2>I am an h2 tag</h2>
-        // siblings h1,h2
-    </div>
-    <div id="child2">
-        <h1>I am an h1 tag</h1>
-        <h2>I am an h2 tag</h2>
-        // siblings h1,h2
-    </div>
-</div> */}
+// React Components
+
+//   Two Types of component
+//     A. Class based Components - OLD - JS Classes
+//     B. Functional Components - NEW  - JS Functions
 
 
-const parent = React.createElement("div",{id:"parent"},
-[React.createElement("div",{id:"child"},[React.createElement("h1",{},"This is Namaste React"),React.createElement("h2",{},"I am an h2 tag")]), 
-React.createElement("div",{id:"child2"},[React.createElement("h1",{},"I am an h1 tag"),React.createElement("h2",{},"I am an h2 tag")])
-]
+//  React Functional Component is normal JS Function which returns some piece of JSX Element/Code or A funtion which returns react element
+//  Name it with capital letter
+const HeadingComponent = () => <h1 className="heading">Namaste React Functional Component</h1>;
+// or both are same
 
+// Akshay saini prefers with return
+const HeadingComponent1 = () => (
+ <div id="container">
+   <h1 className="heading"s>Namaste React Functional Component</h1>;
+ </div>
 );
 
+const fn = () => true;  // function is returning true - short hand Both functions are same (arrow functions)
+const fn1= ()=>{
+    return true;
+}
 
-// JSX Exists
+const root = ReactDOM.createRoot(document.getElementById("root"))
 
+root.render(heading);
 
-
-// add siblings -- third attribute(add more than one children convert this to array of different children)
-
-// const parent = React.createElement("div",{id:"parent"}, React.createElement("div",{id:"child"}, 
-// [React.createElement("h1",{},"I am an h1 tag"),React.createElement("h2",{},"I am an h2 tag")]
-// )
-// );
-
-
-// const parent = React.createElement("div",{id:"parent"}, React.createElement("div",{id:"child"}, 
-// React.createElement("h1",{},"I am an h1 tag")
-// )
-// );
-console.log('parent',parent)
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
-// replacing earlier content with new content(parent)
-
-// Parent is react element(normal JS oject) => HTML(Browser uderstands)root.render()
-// const heading =  React.createElement("h1",{id:"heading",xyz:"abc"},"Hello World From React!")
-// console.log('heading',heading);
-// // heading is react h1 element(normal js object) --- props(children(3rd thing) and attributes(2nd thing))
-// // {} : give attributes to the tags
-// //  create root in react where dom stuff/Manipulation happens
-// // simple api
-// // created root
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// // render heading inside root  converting react h1 element into html h1 tag and put it into this dom
-// root.render(heading);
+// It is not developer friendly(tough)or not readable, therefor JSX Comes.
+// JSX is not part of React. JSX is not HTML inside JS. JSX is HTML-like or XML-like syntax.
+// We can write React without JSX also. JSX makes developer life easy.It is an extension where we can merge HtML and JS.
