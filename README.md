@@ -37,3 +37,34 @@ Extensions that should be used
 - Bracket Pair Colorization By Dzhavat Ushav
 - ESLint by Microsoft
 - Better Comments by Aaron Bond
+
+what personally we should prefer js or jsx?
+- choose anything I personally like js. But it does not matters at all.
+
+Never keep your hardcoded things in components, keep it at different file(utils,common,constants,config etc). I will make utils folder.
+
+utils are utilities which are used across the app.
+
+default export or import, named export or import(when we have import or export multiple things)
+export default component;
+import component from "path";
+
+export const Component;
+import { component } from "path";
+
+H.w Q1. Can we use default and named exports together?
+Ans1. No
+
+Do not exceed content of your file more than 100 lines of code. -- Good Practice create new file for new component.
+
+- onClick, onBlur, onmouseover events(click handler)
+- ui is config driven
+
+# React Hooks
+- Normal JS utility functions wriiten by facebook developers inside react
+- useState() - Superpowerful state variables in react
+why web app is fast? react is only good at DOM Manipulation.
+whenever a state variable updates/changes react rerenders component therefore DOM manipulation super fast
+- useEffect()
+
+
