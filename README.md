@@ -67,4 +67,6 @@ why web app is fast? react is only good at DOM Manipulation.
 whenever a state variable updates/changes react rerenders component therefore DOM manipulation super fast
 - useEffect()
 
+- why do we need state variables? can we use local variable instead of state variable?
+ans- when we change something on ui (calling a function / rerender of whole component when state variable changes, It triggers reconcialition Algorithm and fastly(milliseconds)) therefore react is fast as it knows what to change  - no
 

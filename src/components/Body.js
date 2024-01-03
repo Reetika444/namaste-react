@@ -1,59 +1,40 @@
 import React from "react";
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = ()=> {
 // local state variable super powerful variaBble we use react hook known as usestate - scope of local state variable is inside component
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  
+  //code should be here, After rendering the component.As soon as render cycle is completed, we will call useEffect callback function
+  useEffect(()=>{
+    console.log('useeffect called!');
+    fetchData();
+  },[]);
 
-// normal JS Variable
-  // let listOfRestaurants = [
-  //   { 
-  //     "info":{
-  //     "id": "41102",
-  //     "name": "Hotel Empire",
-  //     "cloudinaryImageId": "l5sjr78yn3vhopcvqgfb",
-  //     "costForTwo": "₹450 for two",
-  //     "cuisines": [
-  //       "North Indian",
-  //       "Kebabs",
-  //       "Biryani"
-  //     ],
-  //     "avgRating": 4,
-  //     "sla": {
-  //       "deliveryTime": 34,
-  //     },
-  //   }
-  //   },
-  //   {
-  //     "info":{
-  //     "id": "41103",
-  //     "name": "Dominos",
-  //     "cloudinaryImageId": "l5sjr78yn3vhopcvqgfb",
-  //     "costForTwo": "₹450 for two",
-  //     "cuisines": [
-  //       "North Indian",
-  //       "Kebabs",
-  //       "Biryani"
-  //     ],
-  //     "avgRating": 4.5,
-  //     "sla": {
-  //       "deliveryTime": 34,
-  //     },
-  //   }
-  // }
-  // ];
+  // fetch function (superpower) given to us by browser, which js engine has. fetch returns promise.
+  const fetchData = async ()=> {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.960059122809971&lng=77.57337538383284&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+    const json = await data.json();
+    console.log('json',json)
+    // Optional Chaining
+    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  }
 
-    return (
+  
+  // Conditional Rendering : rendering according to the condition
+  // if(listOfRestaurants.length === 0){
+  //    return <Shimmer />
+  // } 
+ // Ternary operator 
+    return  listOfRestaurants.length === 0 ? <Shimmer /> :  (
       <div className="body">
         <div className="filter">
            <button className="filter-btn" onClick={()=>{
              // Filter logic
              const filteredList = listOfRestaurants.filter((res)=> res.info.avgRating > 4);
              setListOfRestaurants(filteredList)  
-            //  console.log('listOfRestaurants',listOfRestaurants)
-            //  our data is filtered but ui is not updated
            }}>Top Rated Restaurant</button>
         </div>
          <div className="res-container">
@@ -62,22 +43,6 @@ const Body = ()=> {
             <RestaurantCard key={restaurant.info.id} resData={restaurant}/>  
           ))
           }
-            {/* RestaurantCard */}
-             {/* make your code modular */}
-            {/* <RestaurantCard  resData= {resList[0]} />
-            <RestaurantCard  resData={resList[1]}/>
-            <RestaurantCard  resData={resList[2]}/>
-            <RestaurantCard  resData={resList[3]}/>
-            <RestaurantCard  resData={resList[4]}/>
-            <RestaurantCard  resData={resList[5]}/>
-            <RestaurantCard  resData={resList[6]}/>
-            <RestaurantCard  resData={resList[7]}/>
-            <RestaurantCard  resData={resList[8]}/>          
-            
-            Make your code dynamic using map, filter,reduce rather than static above code.IMP- Each of the list item should be uniqually identified
-            not using keys(not acceptable  <<<< index as key <<<<< unique id(Best Practice))
-            */}
-         
          </div>
       </div>  
     )
