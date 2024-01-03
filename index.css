@@ -65,6 +65,10 @@
     margin: 20px;
 }
 
+.filter{
+    display: flex
+}
+
 .login {
     padding: 0 20px;
     margin: 0 20px;
