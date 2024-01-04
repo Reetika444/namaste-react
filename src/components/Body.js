@@ -29,8 +29,6 @@ const Body = ()=> {
          <div className="search">
             <input type="text" className="search-box" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
             <button onClick={()=>{
-              // Filter the restaurant and update the UI
-
              const filteredRestaurant = listOfRestaurants.filter((res)=>
                       res.info.name.toLowerCase().includes(searchText.toLowerCase())             
                     )
