@@ -10,7 +10,6 @@ const Body = ()=> {
   // whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
   
   useEffect(()=>{
-    console.log('useeffect called!');
     fetchData();
     
   },[]);
@@ -35,13 +34,12 @@ const Body = ()=> {
                     )
               //  searchText
               setFilteredRestaurant(filteredRestaurant)
-              console.log('searchText',searchText)
             }}>Search</button>
          </div>
 
            <button className="filter-btn" onClick={()=>{
              // Filter logic
-             const filteredList = listOfRestaurants.filter((res)=> res.info.avgRating > 4);
+             const filteredList = listOfRestaurants.filter((res)=> res.info.avgRating > 4.5);
              setListOfRestaurants(filteredList)  
            }}>Top Rated Restaurant</button>
         </div>

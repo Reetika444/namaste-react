@@ -71,4 +71,18 @@ whenever a state variable updates/changes react rerenders component therefore DO
 ans- when we change something on ui (calling a function / rerender of whole component when state variable changes, It triggers reconcialition Algorithm and fastly(milliseconds)) therefore react is fast as it knows what to change  - no
 
 - local state variable super powerful variaBble we use react hook known as usestate - scope of local state variable is inside component
+- Hooks only can be called inside body of a functional component
+- useState is called for creating local state variables in inside functional component, try to call useState on the top. As JS is a single threaded synchronous language and react also understands properly. React will not create inconsistency.
+- Never create useState inside if else condition or for loop or functions. It will create inconsistency in your code.
+- if no dependency array => useEffect is called on every render
+- if dependency array is empty = []=> useeffect is called on initial render(just once)
+- if there is dependency array(btnName) =>  useEffect is called everytime dependency array (btnName) is updated
+
+# Two types routing in web apps
+- Link(Used for navigating) instead of anchor tag(reloads whole page)
+- Two types of routing 
+  A. Client Side Routing (not making a n/w call, not fetching a new page, when application first is downloaded, all code is there itself, when we click on home,contact, about only it is loading that page not making any network calls).
+- It is just single page only components getting interchanged therefore Single Page Application
+  B. Server Side Routing (you make a n/w call and html is coming from html)
+
 
